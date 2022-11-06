@@ -1,0 +1,5 @@
+PASTA Products faz arte de categoria, então ela faz parte desse modulo de produtos
+
+tipo primitivo int > vai ter q ser armazenado do banco de dados para poder criar a sequência do numero:
+
+Guid > nós é que geramos esse guid e ele ja vai para o banco de dados da fomra q criamos(ele nao e sequencial e estilo de hash
