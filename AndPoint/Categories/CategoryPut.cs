@@ -25,12 +25,14 @@ public class CategoryPut
 
         //emetidno o erro statuso 404/ codigo do usuario esta errado
         if(category == null)
-        {
             return Results.NotFound();
-        }
 
-        category.Name = categoryRequest.Name;
-        category.Active = categoryRequest.Active;
+
+        category.EditInfo(categoryRequest.Name, categoryRequest.Active);
+
+        //se nao esta valido
+        if (!category.IsValid)
+            return Results.ValidationProblem(category.Notifications.ConvertToProblemsDetails());
 
         context.SaveChanges();
          
