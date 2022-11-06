@@ -34,9 +34,12 @@ public class CategoryPost
         //Depois que passou pelo construtor podemos validar
         if(!category.IsValid)
         {
-            var errors = category.Notifications
-               .GroupBy(g => g.Key).ToDictionary(g => g.Key, g => g.Select(x => x.Message).ToArray());
-            return Results.ValidationProblem(errors);
+            //vamos extender aparte dessa parte de notifications  
+            /* var errors = category.Notifications
+                .GroupBy(g => g.Key).ToDictionary(g => g.Key, g => g.Select(x => x.Message).ToArray());*/
+
+            //utilizando o metodo ConvertToProblemsDetails
+            return Results.ValidationProblem(category.Notifications.ConvertToProblemsDetails());
            
 
         }
